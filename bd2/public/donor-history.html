@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donor History</title>
+</head>
+<body>
+    <h1>Donor History</h1>
+    <label for="donorId">Enter Donor ID: </label>
+    <input type="text" id="donorId" placeholder="Enter donor ID">
+    <button onclick="fetchDonorHistory()">Get History</button>
+    <table id="donorHistoryTable">
+        <thead>
+            <tr>
+                <th>Donation Date</th>
+                <th>Blood Type</th>
+                <th>Quantity</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Rows will be dynamically inserted here -->
+        </tbody>
+    </table>
+
+    <script>
+        async function fetchDonorHistory() {
+            const donorId = document.getElementById('donorId').value.trim();
+            const tableBody = document.querySelector('#donorHistoryTable tbody');
+            tableBody.innerHTML = '';
+            if (!donorId) {
+                alert('Please enter a donor ID');
+                return;
+            }
+            try {
+                const response = await fetch(`/api/donor/history?donor_id=${donorId}`);
+                if (!response.ok) {
+                    const error = await response.json();
+                    alert(error.message || 'Error fetching donor history');
+                    return;
+                }
+
+                const data = await response.json();
+                if (data.length === 0) {
+                    alert('No donation history found for this donor.');
+                    return;
+                }
+                data.forEach(row => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>${new Date(row.donation_date).toLocaleDateString()}</td>
+                        <td>${row.blood_type}</td>
+                        <td>${row.quantity}</td>
+                        <td>${row.status}</td>
+                    `;
+                    tableBody.appendChild(tr);
+                });
+            } catch (error) {
+                console.error('Error fetching donor history:', error);
+                alert('An error occurred. Please try again later.');
+            }
+        }
+    </script>
+</body>
+</html>

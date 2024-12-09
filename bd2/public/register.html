@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Bank - Register</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Create Your Account</h1>
+        <form id="registerForm">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="text" id="phone" name="phone_number" required>
+
+            <label for="role">Role</label>
+            <select id="role" name="role" required>
+                <option value="donor">Donor</option>
+                <option value="patient">Patient</option>
+                <option value="admin">Admin</option>
+            </select>
+
+            <label for="blood_type">Blood Type</label>
+            <input type="text" id="blood_type" name="blood_type" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Register</button>
+        </form>
+        <p>Already have an account? <a href="login.html">Login here</a></p>
+    </div>
+
+    <!-- Reference to the correct client-side JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

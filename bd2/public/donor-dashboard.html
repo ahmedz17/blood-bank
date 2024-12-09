@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donor Dashboard</title>
+    <style>
+        /* Basic styling for the dashboard */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+        }
+        /* Side Navbar Styling */
+        nav {
+            width: 250px;
+            background-color: #333;
+            padding: 20px;
+            position: fixed;
+            height: 100%;
+            top: 0;
+            left: 0;
+            box-sizing: border-box;
+        }
+        nav a {
+            color: white;
+            padding: 15px;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        nav a:hover {
+            background-color: #575757;
+        }
+
+        /* Main Content Area */
+        .container {
+            margin-left: 260px;
+            padding: 20px;
+            flex: 1;
+        }
+
+        /* Header Styling */
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        /* Section Headers */
+        h2 {
+            color: #555;
+        }
+
+        /* Form styling */
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        form input,
+        form select,
+        form textarea,
+        form button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        form button {
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #575757;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        /* Section Styling */
+        section {
+            margin-top: 20px;
+        }
+
+        /* Hidden by default */
+        #donation-request {
+            display: none;
+        }
+
+        /* Media Query for Responsiveness */
+        @media (max-width: 768px) {
+            nav {
+                width: 100%;
+                position: relative;
+            }
+
+            .container {
+                margin-left: 0;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Side Navbar -->
+    <nav>
+        <a href="javascript:void(0);" id="donor-dashboard-btn">Donor Dashboard</a>
+        <a href="javascript:void(0);" id="view-history-btn">View Donation History</a>
+        <a href="javascript:void(0);" id="request-donation-btn">Request Donation</a>
+    </nav>
+
+    <!-- Main Content Area -->
+    <div class="container">
+        <!-- Donor Dashboard Section -->
+        <section id="donor-dashboard">
+            <h1>Welcome to the Donor Dashboard</h1>
+            <p>This is your personal dashboard. Here you can view your donation history and request a new donation.</p>
+        </section>
+
+        <!-- Donation History Section -->
+        <section id="donor-history">
+            <h2>View Donation History</h2>
+            <p>This is where you can view the donor's donation history. (Data will be displayed here.)</p>
+        </section>
+
+        <section id="donation-request">      
+            <h2>Submit Your Donation Request</h2>
+            <form id="donationForm" method="POST">
+              <input type="text" id="name" name="name" placeholder="Full Name" required>
+              <input type="number" id="age" name="age" placeholder="Age" required>
+              <input type="text" id="disease_status" name="disease_status" placeholder="Disease Status">
+              <textarea id="address" name="address" placeholder="Address" required></textarea>
+              <input type="tel" id="phone_number" name="phone_number" placeholder="Phone Number">
+              <select id="blood_type" name="blood_type" required>
+                  <option value="">-- Select Blood Type --</option>
+                  <option value="A+">A+</option>
+                  <option value="A-">A-</option>
+                  <option value="B+">B+</option>
+                  <option value="B-">B-</option>
+                  <option value="O+">O+</option>
+                  <option value="O-">O-</option>
+                  <option value="AB+">AB+</option>
+                  <option value="AB-">AB-</option>
+              </select>
+              <input type="number" id="quantity" name="quantity" placeholder="Quantity (units)" min="1" required>
+              <input type="date" id="donation_date" name="donation_date" required>
+              <button type="submit">Submit Donation</button>
+          </form>
+    </main>
+        </section>
+    </div>
+    <script src="script.js"></script>
+   
+
+</body>
+</html>

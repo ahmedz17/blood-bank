@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donor Donation Request</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Blood Donation Request</h1>
+    </header>
+
+    <main>
+            <h2>Submit Your Donation Request</h2>
+            <form id="donationForm">
+              <input type="text" id="name" name="name" placeholder="Full Name" required>
+              <input type="number" id="age" name="age" placeholder="Age" required>
+              <input type="text" id="disease_status" name="disease_status" placeholder="Disease Status">
+              <textarea id="address" name="address" placeholder="Address" required></textarea>
+              <input type="tel" id="phone_number" name="phone_number" placeholder="Phone Number">
+              <select id="blood_type" name="blood_type" required>
+                  <option value="">-- Select Blood Type --</option>
+                  <option value="A+">A+</option>
+                  <option value="A-">A-</option>
+                  <option value="B+">B+</option>
+                  <option value="B-">B-</option>
+                  <option value="O+">O+</option>
+                  <option value="O-">O-</option>
+                  <option value="AB+">AB+</option>
+                  <option value="AB-">AB-</option>
+              </select>
+              <input type="number" id="quantity" name="quantity" placeholder="Quantity (units)" min="1" required>
+              <input type="date" id="donation_date" name="donation_date" required>
+              <button type="submit">Submit Donation</button>
+          </form>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
